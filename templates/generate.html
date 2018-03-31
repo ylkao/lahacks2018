@@ -1,0 +1,46 @@
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+<script src="https://www.blackrock.com/tools/api/js/hackathon"></script>
+
+<div id="container" style="height: 400px; min-width: 310px; min-height:400px; display:block;"></div>
+
+<script>
+
+$(function() {
+  var company = 'MSFT';
+  var start = [20090101,20100101,20110101,20120101,20130101,20140101,20150101,20160101, 20170101, 20180101];
+  var end = [20091231, 20101231, 20111231, 20121231, 20131231, 20141231,20151231, 20161231,20171231, 20181231];
+
+  var rand = Math.floor(Math.random() * 10);
+
+  var Aladdin = new blk.API();
+  Aladdin.performanceData({
+    identifiers: 'MSFT',
+    startDate: start[rand],
+    endDate: end[rand]
+  }, function(data) {
+    $('#container').highcharts('StockChart', {
+      rangeSelector: {
+        selected: 5
+      },
+      title: {
+        text: data.resultMap.RETURNS.map(function(returns) {
+          return returns.ticker
+        }).join('/') + ' Stock Return ($10,000 Investment)'
+      },
+      series: data.resultMap.RETURNS.map(function(returns) {
+        return {
+          name: returns.ticker,
+          data: returns.performanceChart.map(function(point) {
+            return [point[0], point[1] * 10000]
+          }),
+          tooltip: {
+            valueDecimals: 2
+          }
+        }
+      })
+    });
+  });
+});
+</script>

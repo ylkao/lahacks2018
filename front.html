@@ -1,199 +1,126 @@
 <!DOCTYPE html>
 <html>
+<!-- <link rel=stylesheet type=text/css href="{{ url_for('static', filename='formstyle.css') }}"> -->
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-
-<div class="navbar">
-<!--   <a href="#home">Home</a>
-  <a href="#news">News</a> -->
-	<div class="dropdown">
-<button onclick="myFunctionY()" class="dropbtn">Year
-	<i class="fa fa-caret-down"></i></button>
-  <div id="myDropdownY" class="dropdown-content">
-    <input type="text" placeholder="Search.." id="myInput1" onkeyup="filterFunctionY()">
-    <a href="#about">2000</a>
-    <a href="#base">2002</a>
-    <a href="#blog">2004</a>
-    <a href="#contact">2006</a>
-    <a href="#custom">2008</a>
-    <a href="#support">2010</a>
-    <a href="#tools">2012</a>
-  </div>
-</div>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:light,black|Open+Sans:light,bold">
 	
-<div class="dropdown">
-<button onclick="myFunctionC()" class="dropbtn">Company
-	<i class="fa fa-caret-down"></i></button>
-  <div id="myDropdownC" class="dropdown-content">
-    <input type="text" placeholder="Search.." id="myInput2" onkeyup="filterFunctionC()">
-    <a href="#about">Apple</a>
-    <a href="#base">Pear</a>
-    <a href="#blog">Banana</a>
-    <a href="#contact">Orange</a>
-    <a href="#custom">Raspberry</a>
-    <a href="#support">Mango</a>
-    <a href="#tools">Dragonfruit</a>
-  </div>
-</div>
-</div>
-</head>
+	<div class = "nav">
+		<a href = "#about">ABOUT</a>
+		<a href = "#projects">MISSION</a>
+		<a href = "#contact">CONTACT</a>
+	</div>
+	
+	 
+	<div id="welcome">
+		
+		<h2> Welcome to EduVest! </h2>
+		<p> Click the button below to practice stock investing strategies. </p>
+		
 
 <body>
-<div id="bd">	
-<h3>Learn Investment Strategies</h3>
-	<p>Hover over the links to choose your situation!</p>
+  <div class="login">
+  	<button type="button" class="btn btn-primary btn-block btn-large">Learn</button>
+</body>
+	
+	<div id="about">
+	<h2> about </h2>
+		<p> Hi everyone, we are ... </p>
+	</div>
+	
+	<div id="mission">
+		<h2> mission </h2>
+		<p> Our goal is to provide financial education </p>
+	</div>
+	
+	<div id="contact">
+		<h2> contact </h2>
+		<p> If you have any questions about EduVest, email us at ... </p>
+		</div>
 </div>
 
-</body>
-
-
 <style>
-* { 
-	background-color: inherit;
-   font-family: Arial, Helvetica, sans-serif;;
+* {
+	font-family: "Raleway", sans-serif;
+	color: grey;
+	font-size: 20px;
 }
 
-.navbar {
-/* 		top: 0;
-		left: 0; */
-		width: 100%;
-    overflow: hidden;
-    background-color: #547175;
-    font-family: Arial, Helvetica, sans-serif;
-		margin: 0px;
-	padding: 0;
+div.nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 12px;
+	margin-bottom: 20px;
+	overflow: hidden;
+	word-spacing: 15px;
+	background-color: #d8eaed;
+	font-size: 1.2em;
+	display: block;
 }
 
-.navbar a {
-    float: left;
-    font-size: 16px;
-    color: white;
-    text-align: center;
-/*     padding: 14px 16px; */
-    text-decoration: none;
+#welcome {
+	padding-top: 50px;
+	padding-bottom: 20px;
 }
 
-.dropdown {
-    float: left;
-    overflow: hidden;
+p {
+	padding-top: 15px;
+	padding-bottom: 30px;
 }
 
-.dropdown .dropbtn {
-    font-size: 16px;    
-    border: none;
-    outline: none;
-    color: white;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0;
+a {
+	display: inline-block;
 }
 
-.navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: #256b78;
+a:link {
+	color: #4d9e8b;
+	text-decoration: none;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+a:visited {
+	color: #82d5e8;
 }
 
-.dropdown-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
+a:hover {
+	color: #65f7d5;
 }
 
-.dropdown-content a:hover {
-    background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
+h2 {
+	color: #546e66;
+	font-size: 24px;
 }
 
 body {
-	position: relative;
-	background-color: #cffce2;
+	text-align: center;
+	padding-bottom: 40px;
 }
 
-#bd {
-	color: grey;
-	margin-top: 0;
+#about {
+	padding-top: 60px;
+}
+.login {
+/* 	background-color: pink; */
+	margin: 0;
 	padding: 0;
+	top: 0;
+	left: 0;
+	width: 100%;
+	position: relative;
 }
 
-#myInput1 {
-    border-box: box-sizing;
-    background-image: url('searchicon.png');
-    background-position: 14px 12px;
-    background-repeat: no-repeat;
-    font-size: 16px;
-    padding: 14px 20px 12px 45px;
-    border: none;
-    border-bottom: 1px solid #ddd;
+button {
+	background-color: #bbfae6;
+	border-radius: 3px;
+	color: #3c6e5e;
+	font-size: 20px;
+	margin: 5px;
+	padding: 10px 30px;
+	overflow: hidden;
 }
 
-#myInput2 {
-    border-box: box-sizing;
-    background-image: url('searchicon.png');
-    background-position: 14px 12px;
-    background-repeat: no-repeat;
-    font-size: 16px;
-    padding: 14px 20px 12px 45px;
-    border: none;
-    border-bottom: 1px solid #ddd;
+button:hover {
+	background-color: #95b8ad;
 }
 </style>
-
-<script>
-
-function myFunctionY() {
-    document.getElementById("myDropdownY").classList.toggle("show");
-}
-
-function filterFunctionY() {
-    var input, filter, ul, li, a, i;
-    input = document.getElementById("myInput1");
-    filter = input.value.toUpperCase();
-    div = document.getElementById("myDropdownY");
-    a = div.getElementsByTagName("a");
-    for (i = 0; i < a.length; i++) {
-        if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
-            a[i].style.display = "";
-        } else {
-            a[i].style.display = "none";
-        }
-    }
-}
-
-function myFunctionC() {
-    document.getElementById("myDropdownC").classList.toggle("show");
-}
-
-function filterFunctionC() {
-    var input, filter, ul, li, a, i;
-    input = document.getElementById("myInput2");
-    filter = input.value.toUpperCase();
-    div = document.getElementById("myDropdownC");
-    a = div.getElementsByTagName("a");
-    for (i = 0; i < a.length; i++) {
-        if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
-            a[i].style.display = "";
-        } else {
-            a[i].style.display = "none";
-        }
-    }
-}
-</script>
 </html>

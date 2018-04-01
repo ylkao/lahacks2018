@@ -31,17 +31,18 @@
 	
 
 	function generate() {
-	  var company = 'MSFT';
+	  var companies = ['MSFT'];
 	  var start = [20090101,20100101,20110101,20120101,20130101,20140101,20150101,20160101, 20170101, 20180101];
 	  var end = [20091231, 20101231, 20111231, 20121231, 20131231, 20141231,20151231, 20161231,20171231, 20181231];
 
-	  var rand = Math.floor(Math.random() * 10);
+	  var date = Math.floor(Math.random() * 10);
+	  var comp = Math.floor(Math.random() * len(companies));
 
 	  var Aladdin = new blk.API();
 	  Aladdin.performanceData({
-	    identifiers: 'MSFT',
-	    startDate: start[rand],
-	    endDate: end[rand]
+	    identifiers: companies[comp],
+	    startDate: start[date],
+	    endDate: end[date]
 	  }, function(data) {
 	    $('#container').highcharts('StockChart', {
 	      rangeSelector: {

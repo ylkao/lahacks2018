@@ -28,18 +28,41 @@
 
 	<div id="container" style="height: 400px; min-width: 310px; min-height:400px; display:block;"></div>
 
-	
+	<div id="context" style="height: 100px; min-width: 310px; min-height:100px; display:block;" align="left"></div>
+
 
 	<script>
 	
 
 	function generate() {
-	  var companies = ['MSFT'];
-	  var start = [20090101,20100101,20110101,20120101,20130101,20140101,20150101,20160101, 20170101, 20180101];
-	  var end = [20091231, 20101231, 20111231, 20121231, 20131231, 20141231,20151231, 20161231,20171231, 20181231];
 
-	  var date = Math.floor(Math.random() * 10);
-	  var comp = Math.floor(Math.random() * len(companies));
+	  var companies = ['SCOR','SWK','RP','MASI','HTH','CASM','CAG','HR','MFA','FMBI',
+			'CSCD','FAST','SYBT','HMN','PHH','RLJE','LRAD','MAXY','ASTC',
+			'PESI','POZN','MSFT','UTL','SCX','CYT','CUI','DGSE','BSRR',
+			'GLCH','VOLC','GNCMA','SHLM','FFKY','SGMO','VPG','MIG','LNCO',
+			'TEL','BELFA','FLT','FN','MMS','SAAS','PWX','MON','VRNT','UNB',
+			'FIBK','FCTY','WSBF','ALCS','STRS','PBI','DD','AETI','ARP',
+			'BBSI','EXAR','NEWN','LZB','MRLN','GRC','THG','LXK','STRA',
+			'STRN','AMRE','AAON','RLGY','COSI','UAM','CMLS','ACPW','HF',
+			'LLEN','CNYD','PVTB','TYPE','MW','FNHC','MTD','GTIV','CENTA',
+			'TSRA','CYB','FANG','IOSP','NEE','POWI','LMT','PCTI','DHI',
+			'QLGC','IBCA','LLEN','MKSI','MWIV','ATRI','TCI','EBSB','FSYS',
+			'INN','ARTC','UNH','AVB','IMGN','MFSF','PKE','PMC','MILL',
+			'XWES','ABCB','DEST','ARCP','OCR','FCFS','LPX','DTLK','ADS',
+			'BAX','HBNC','STLD','HSKA','RHT','FNF','BBOX','CFR','MAXY',
+			'AEY','ARP','VRTB','BKD','SYBT','TGC','MNKD','GAS','DSCI','FLO',
+			'PSMI','RDIB','CTB','CRMB','PERF','IM','PSB','MRC','GLP','PFSW',
+			'INN'];
+	  var companyNames = ['comScore, Inc.', 'Stanley Black & Decker, Inc.', 'RealPage, Inc.', 'Masimo Corporation', 'Hilltop Holdings Inc.', 'CAS Medical Systems Inc.', 'ConAgra Foods, Inc.', 'Healthcare Realty Trust Incorporated', 'MFA Financial, Inc.', 'First Midwest Bancorp Inc.', 'Cascade Microtech Inc.', 'Fastenal Company', 'Stock Yards Bancorp, Inc.', 'Horace Mann Educators Corp.', 'PHH Corporation', 'RLJ Entertainment, Inc.', 'LRAD Corporation', 'Maxygen, Inc.', 'Astrotech Corp.', 'Perma-Fix Environmental Services Inc.', 'POZEN Inc.', 'Microsoft Corporation', 'Unitil Corp.', 'The L.S. Starrett Company', 'Cytec Industries Inc.', 'CUI Global, Inc.', 'DGSE Companies Inc.', 'Sierra Bancorp', 'Gleacher & Company, Inc', 'Volcano Corporation', 'General Communication Inc.', 'A. Schulman, Inc.', 'First Financial Service Corp.', 'Sangamo Biosciences Inc.', 'Vishay Precision Group, Inc.', 'Meadowbrook Insurance Group Inc.', 'Linn Co, LLC', 'TE Connectivity Ltd.', 'Bel Fuse Inc.', 'FleetCor Technologies, Inc.', 'Fabrinet', 'MAXIMUS, Inc.', 'inContact, Inc.', 'Providence and Worcester Railroad Company', 'Monsanto Company', 'Verint Systems Inc.', 'Union Bankshares, Inc.', 'First Interstate Bancsystem Inc.', '1st Century Bancshares, Inc.', 'Waterstone Financial, Inc.', 'ALCO Stores, Inc.', 'Stratus Properties Inc.', 'Pitney Bowes Inc.', 'E. I. du Pont de Nemours and Company', 'American Electric Technologies, Inc', 'Atlas Resource Partners, L.P.', 'Barrett Business Services Inc.', 'Exar Corp.', 'New Energy Systems Group', 'La-Z-Boy Incorporated', 'Marlin Business Services Corp.', 'Gorman-Rupp Co.', 'The Hanover Insurance Group Inc.', 'Lexmark International Inc.', 'Strayer Education Inc.', 'Sutron Corporation', 'AmREIT, Inc.', 'AAON Inc.', 'Realogy Holdings Corp.', 'Cosi Inc.', 'Universal American Corp', 'Cumulus Media Inc.', 'Active Power Inc.', 'HFF, Inc.', 'L & L Energy, Inc.', 'China Yida Holding, Co.', 'PrivateBancorp, Inc.', 'Monotype Imaging Holdings Inc.', "The Men's Wearhouse, Inc.", 'Federated National Holding Company', 'Mettler-Toledo International Inc.', 'Gentiva Health Services Inc.', 'Central Garden & Pet Company', 'Tessera Technologies Inc.', 'WisdomTree Chinese Yuan Strategy', 'Diamondback Energy, Inc.', 'Innospec Inc.', 'NextEra Energy, Inc.', 'Power Integrations Inc.', 'Lockheed Martin Corporation', 'PCTEL, Inc.', 'DR Horton Inc.', 'QLogic Corp.', 'Intervest Bancshares Corp.', 'L & L Energy, Inc.', 'MKS Instruments, Inc.', 'MWI Veterinary Supply, Inc.', 'ATRION Corp.', 'Transcontinental Realty Investors Inc.', 'Meridian Interstate Bancorp, Inc.', 'Fuel Systems Solutions, Inc.', 'Summit Hotel Properties, Inc.', 'ArthroCare Corporation', 'UnitedHealth Group Incorporated', 'Avalonbay Communities Inc.', 'ImmunoGen, Inc.', 'Mutualfirst Financial Inc.', 'Park Electrochemical Corp.', 'PharMerica Corporation', 'Miller Energy Resources, Inc.', 'World Energy Solutions, Inc.', 'Ameris Bancorp', 'Destination Maternity Corporation', 'American Realty Capital Properties, Inc.', 'Omnicare Inc.', 'First Cash Financial Services Inc.', 'Louisiana-Pacific Corp.', 'Datalink Corporation', 'Alliance Data Systems Corporation', 'Baxter International Inc.', 'Horizon Bancorp', 'Steel Dynamics Inc.', 'Heska Corporation', 'Red Hat, Inc.', 'Fidelity National Financial, Inc.', 'Black Box Corporation', 'Cullen/Frost Bankers, Inc.', 'Maxygen, Inc.', 'ADDvantage Technologies Group Inc.', 'Atlas Resource Partners, L.P.', 'Vestin Realty Mortgage II, Inc.', 'Brookdale Senior Living Inc.', 'Stock Yards Bancorp, Inc.', 'Tengasco Inc.', 'MannKind Corp.', 'AGL Resources Inc.', 'Derma Sciences Inc.', 'Flowers Foods, Inc.', 'Peregrine Semiconductor Corporation', 'Reading International, Inc.', 'Cooper Tire & Rubber Co.', 'Crumbs Bake Shop, Inc.', 'Perfumania Holdings, Inc.', 'Ingram Micro Inc.', 'PS Business Parks Inc.', 'MRC Global Inc.', 'Global Partners LP', 'PFSweb Inc.', 'Summit Hotel Properties, Inc.'];
+	  var companyDict = {};
+	  for (var i = companyNames.length - 1; i >= 0; i--) {
+	  	companyDict[companies[i]] = companyNames[i];
+	  }
+	  var start = [20100101,20110101,20120101,20130101,20140101,20150101,20160101, 20170101];
+	  var end = [20101231, 20111231, 20121231, 20131231, 20141231,20151231, 20161231,20171231];
+
+	  var date = Math.floor(Math.random() * start.length);
+	  var comp = Math.floor(Math.random() * companies.length);
 
 	  var Aladdin = new blk.API();
 	  Aladdin.performanceData({
@@ -53,8 +76,8 @@
 	      },
 	      title: {
 	        text: data.resultMap.RETURNS.map(function(returns) {
-	          return returns.ticker
-	        }).join('/') + ' Stock Return ($10,000 Investment)'
+	          return companyDict[returns.ticker] + ' (' + returns.ticker + ')'
+	        }).join('/') +', Stock Return ($10,000 Investment)'
 	      },
 	      series: data.resultMap.RETURNS.map(function(returns) {
 	        return {
@@ -77,7 +100,18 @@
 	</script>
 </body>
 	
-	<div id="about">
+	<!-- New code for choosing to buy or sell !-->
+
+<div id="choose">
+	<h2> What do you choose to do? </h2>
+	<form><input type="radio" name="choice" value="buy" checked> Buy
+	<input type="radio" name="choice" value="sell"> Sell
+		<br><br>
+		<button type="submit" class="btn btn-primary btn-block btn-large">Submit</button>
+		
+	</form>
+</div>
+<div id="about">
 	<h2> about </h2>
 		<p> Hi everyone, we are a group of college students at LA Hacks! This project uses Blackrock API 
 			to help people learn how to invest. </p>
@@ -94,17 +128,7 @@
 		</div>
 </div>
 
-<!-- New code for choosing to buy or sell !-->
 
-<div id="choose">
-	<h2> What do you choose to do? </h2>
-	<form><input type="radio" name="choice" value="buy" checked> Buy
-	<input type="radio" name="choice" value="sell"> Sell
-		<br><br>
-		<button type="submit" class="btn btn-primary btn-block btn-large">Submit</button>
-		
-	</form>
-</div>
 
 <style>
 * {
